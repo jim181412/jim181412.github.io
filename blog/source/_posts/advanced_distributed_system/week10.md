@@ -1,7 +1,7 @@
 ---
 title: week 10 ads
-tags: NLP
-categories: NLP 
+tags: ADS
+categories: ADS
 date: 2022/12/06
 ---
 
