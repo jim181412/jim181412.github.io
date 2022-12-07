@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: Jim
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
+author: Jim
 language: en
 timezone: ''
 
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: cute
+theme: butterfly
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -105,3 +105,46 @@ deploy:
   type: git
   repo: https://github.com/jim181412/jim181412.github.io
   branch: main
+
+mathjax:
+  tags: none # 或 'ams' 或 'all'
+  single_dollars: true # 启用单个美元符号作为内联（行内）数学公式定界符
+  cjk_width: 0.9 # 相对 CJK 字符宽度
+  normal_width: 0.6 # 相对正常（等宽）宽度
+  append_css: true # 将 CSS 添加到每个页面
+  every_page: false # 如果为 true，那么无论每篇文章的前题中的 `mathjax` 设置如何，每页都将由 mathjax 呈现
+
+
+# Live2D
+## https://github.com/EYHN/hexo-helper-live2d
+live2d:
+  enable: true
+  # enable: false
+  scriptFrom: local # 默认
+  pluginRootPath: live2dw/ # 插件在站点上的根目录(相对路径)
+  pluginJsPath: lib/ # 脚本文件相对与插件根目录路径
+  pluginModelPath: assets/ # 模型文件相对与插件根目录路径
+  # scriptFrom: jsdelivr # jsdelivr CDN
+  # scriptFrom: unpkg # unpkg CDN
+  # scriptFrom: https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js # 你的自定义 url
+  tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中
+  debug: false # 调试, 是否在控制台输出日志
+  model:
+    use: live2d-widget-model-tororo # npm-module package name
+    # use: wanko # 博客根目录/live2d_models/ 下的目录名
+    # use: ./wives/wanko # 相对于博客根目录的路径
+    # use: https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json # 你的自定义 url
+    display:    # 模型展示的位置设置
+        position: right     # 方位
+        width: 150          # 宽度
+        height: 300         # 高度
+    mobile:
+        show: true   # 在移动设备上是否开启live2d
+
+inject:
+  head:
+  # - <link rel="stylesheet" href="/xxx.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    <script src="/live2d-widget/autoload.js"></script>
+  bottom:
+    # - <script src="xxxx"></script>
