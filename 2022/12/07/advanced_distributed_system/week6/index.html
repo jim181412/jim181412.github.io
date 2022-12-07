@@ -1,0 +1,358 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>week 6 ADS | Jim</title><meta name="author" content="Jim"><meta name="copyright" content="Jim"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Distributed Relational DataDistributed data management distributed databaseIn a distributed database management system, data is stored in several databases, but can be queried from any places. paralle">
+<meta property="og:type" content="article">
+<meta property="og:title" content="week 6 ADS">
+<meta property="og:url" content="http://jim181412.github.io/2022/12/07/advanced_distributed_system/week6/index.html">
+<meta property="og:site_name" content="Jim">
+<meta property="og:description" content="Distributed Relational DataDistributed data management distributed databaseIn a distributed database management system, data is stored in several databases, but can be queried from any places. paralle">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://jim181412.github.io/img/texas.png">
+<meta property="article:published_time" content="2022-12-07T18:26:30.119Z">
+<meta property="article:modified_time" content="2022-12-07T18:26:30.120Z">
+<meta property="article:author" content="Jim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jim181412.github.io/img/texas.png"><link rel="shortcut icon" href="/img/pp.png"><link rel="canonical" href="http://jim181412.github.io/2022/12/07/advanced_distributed_system/week6/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'week 6 ADS',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-12-07 18:26:30'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/pp.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/texas.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jim</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">week 6 ADS</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-12-07T18:26:30.119Z" title="Created 2022-12-07 18:26:30">2022-12-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-12-07T18:26:30.120Z" title="Updated 2022-12-07 18:26:30">2022-12-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="week 6 ADS"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="Distributed-Relational-Data"><a href="#Distributed-Relational-Data" class="headerlink" title="Distributed Relational Data"></a>Distributed Relational Data</h2><p>Distributed data management</p>
+<h3 id="distributed-database"><a href="#distributed-database" class="headerlink" title="distributed database"></a>distributed database</h3><p>In a distributed database management system, data is stored in several databases, but can be queried from any places.</p>
+<h3 id="parallel-databases"><a href="#parallel-databases" class="headerlink" title="parallel databases"></a>parallel databases</h3><p>In parallel database, data is stored and queried across several databases.</p>
+<p>in parallel database, disks and memory are assigned to different processors. And each processor has its own private disk and memory and each processor is an independent entity. Share Nothing!</p>
+<p>These processors communicate through interconnect.</p>
+<p>Parallel databases can be used to speed up both online transaction processing (OLTP) and online analytical processing (OLAP) tasks.</p>
+<h3 id="data-integration"><a href="#data-integration" class="headerlink" title="data integration"></a>data integration</h3><p>Data integration is a process of combining data from existing sources in a way that reduces heterogeneities.</p>
+<p>data integration may leave the data where it is or copy the data from source.</p>
+<p>Where the data is copied, ETL workflows are often used.(Extract, Transform, Load)</p>
+<h2 id="Big-data"><a href="#Big-data" class="headerlink" title="Big data"></a>Big data</h2><p>4 V’s of big data</p>
+<ul>
+<li>volumn: extreme scale</li>
+<li>variety: the data may be in different forms</li>
+<li>velcocity: the data may be changeing(arriving) quickly</li>
+<li>veracity(真实，准确): the data may be of variable quality</li>
+</ul>
+<h3 id="cloud-service"><a href="#cloud-service" class="headerlink" title="cloud service"></a>cloud service</h3><p>Cloud services often belong to one of the following delivery models:</p>
+<ul>
+<li>infrastructure as a service (IAAS)<ul>
+<li>purchase <strong>virtual machine</strong>, storage</li>
+</ul>
+</li>
+<li>platform as a service (PAAS)<ul>
+<li>purchase of <strong>software</strong> used to build applications.</li>
+</ul>
+</li>
+<li>Softwar-as-a-service (SAAS)<ul>
+<li>purchase of a end-user <strong>application</strong></li>
+</ul>
+</li>
+<li>database-as-a-service(BDAAS)<ul>
+<li>provide cloud hosting of database systems.</li>
+</ul>
+</li>
+</ul>
+<h4 id="Database-As-A-Service"><a href="#Database-As-A-Service" class="headerlink" title="Database As A Service"></a>Database As A Service</h4><ul>
+<li>DBaaS supports the full range of database platforms:<ul>
+<li>established relational vendors: migrating customers from on-premise to clouds.</li>
+<li>NoSQL vendors: for web-scale simple-request applications that require elasticity.</li>
+<li>Cloud data warehouses, such as Snowflake.</li>
+</ul>
+</li>
+<li>DBaas is also associated with a variety of tooling, such as:<ul>
+<li>Matillion for ETL in cloud.</li>
+<li>Dabase miragation tools, on-premise(本地) to cloud</li>
+</ul>
+</li>
+</ul>
+<h3 id="Distributed-data-challenge"><a href="#Distributed-data-challenge" class="headerlink" title="Distributed data challenge"></a>Distributed data challenge</h3><p>issues for the development if data-intensive applicaitions:</p>
+<ul>
+<li><strong>Reliability</strong>: the ability to continue working correctly evetn when things go wrong.</li>
+<li><strong>Scalability</strong>: the ability to cope with increased load(e.g., in terms of )</li>
+<li><strong>matainance</strong>: make it easy for operations teams and accommodating evolvability.</li>
+</ul>
+<h2 id="Partition"><a href="#Partition" class="headerlink" title="Partition"></a>Partition</h2><p>In data intensive applications, parallel processing involves distributing the data accross the available nodes.<br>The distribution of the data is referred to as partitioning or sharding.</p>
+<h3 id="partition"><a href="#partition" class="headerlink" title="partition:"></a>partition:</h3><p>Techinically, partitioning involves deciding how to assign data from a source onto distributed nodes.</p>
+<ul>
+<li><p>data can be partitioned in different ways: </p>
+<ul>
+<li><strong>round robin and random</strong>: data is assigned as it is inserted accross different node.<ul>
+<li>pros:<ul>
+<li>uniform initial distribution </li>
+<li>easy to rebalance on update(update)</li>
+</ul>
+</li>
+<li>cons: <ul>
+<li>quering involves accessing all nodes.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>partition related to the key</strong>:<ul>
+<li>pros: <ul>
+<li>focused range queries on key</li>
+<li>focused direct access on key</li>
+</ul>
+</li>
+<li>cons: <ul>
+<li>uniform distribution not intrinsic</li>
+<li>risk of hot spots for popular keys</li>
+<li>rebalancing can be expensive</li>
+<li>only helps for key-based requests</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>partition by hash on the key</strong>:<ul>
+<li>pros: <ul>
+<li>uniform distribution with certain keys</li>
+<li>focused direction access on key</li>
+</ul>
+</li>
+<li>cons: <ul>
+<li>rebalance can be expensive </li>
+<li>only helps for requests that have the key</li>
+<li>risk of hot spots for pupular keys</li>
+<li>no support for range queries</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Paritioning by key means choosing suitable key.<br>what features are desirable in a key, given examples?<br><img src="/learning/thrid_year_courses/advanced_distributed_system/images/%E6%88%AA%E5%B1%8F2022-11-16%2017.05.23.png" alt="picture 1"></p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Desirable</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Used for direct access requests</td>
+<td>Name,Town</td>
+</tr>
+<tr>
+<td>diverse values</td>
+<td>Id,name,Town,Size</td>
+</tr>
+<tr>
+<td>not subject to skew</td>
+<td>Id, Name, Town, Size</td>
+</tr>
+<tr>
+<td>can be used for range access requests</td>
+<td>Size</td>
+</tr>
+</tbody></table>
+<h3 id="skew-and-hot-spots"><a href="#skew-and-hot-spots" class="headerlink" title="skew and hot spots"></a>skew and hot spots</h3><p>Skew is when the partitioning is uneven.</p>
+<ul>
+<li>For example, a partition on the first letter of country in the university table.</li>
+</ul>
+<p>A hot spot arises when the load is unevenly balances.</p>
+<ul>
+<li>For example, many more people may look up some universities than others.</li>
+</ul>
+<h3 id="Repatitioning"><a href="#Repatitioning" class="headerlink" title="Repatitioning"></a>Repatitioning</h3><p>If we assume a uniform distribution, and a mod-based partition, the fraction of the data that needs to be repartitioned can be estimated as:</p>
+<ul>
+<li>To-Redistribute &#x3D; $1 - \frac{1}{final-nodes}$</li>
+<li>the number of tuples moved is: $( 1 - \frac{1}{final-nodes}) * (number-of-data)$</li>
+</ul>
+<p>What fraction of the data needs to relocate if there are $x$ nodes and many partitions, and we want to add a further node while continuing to spread the data uniformly?</p>
+<ul>
+<li>Fraction moved &#x3D; $\frac{1}{x+1}$</li>
+</ul>
+<h2 id="Second-indexes"><a href="#Second-indexes" class="headerlink" title="Second indexes"></a>Second indexes</h2><p>Definition: A secondary index is an idnex on an attribute that has not been used for partitioning. </p>
+<h3 id="store-of-secondary-indexing"><a href="#store-of-secondary-indexing" class="headerlink" title="store of secondary indexing"></a>store of secondary indexing</h3><p>where the secondary index is stored.</p>
+<ul>
+<li><p>one option is that the secondary index is stored on the same node as the data it is indexing. In this case, there are many local indexes.</p>
+<ul>
+<li>For example:<img src="/learning/thrid_year_courses/advanced_distributed_system/images/%E6%88%AA%E5%B1%8F2022-11-16%2017.57.25.png" alt="picture2"></li>
+<li>pros and cons:<ul>
+<li>pros: updating a document will lead to the change of local index(so no distributed transaction)</li>
+<li>cons: A lookup needs to go to every partition, leading to many index lookups.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>second option is that the secondary undex is stored parititioned by term: a single distributed index.</p>
+<ul>
+<li>For example:<img src="/learning/thrid_year_courses/advanced_distributed_system/images/%E6%88%AA%E5%B1%8F2022-11-16%2017.57.39.png" alt="picture2"><ul>
+<li>pros: index lookups no longer need to go to all nodes(note some index lookups will have no hits)</li>
+<li>cons: updates to a document on a node now also lead to index updates(and thus potentially to distributed transactions)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://jim181412.github.io">Jim</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://jim181412.github.io/2022/12/07/advanced_distributed_system/week6/">http://jim181412.github.io/2022/12/07/advanced_distributed_system/week6/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/texas.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/12/07/advanced_distributed_system/week5/"><img class="prev-cover" src="/img/texas.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">week 5 Distributed System</div></div></a></div><div class="next-post pull-right"><a href="/2022/12/07/advanced_distributed_system/week4/"><img class="next-cover" src="/img/texas.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/pp.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jim</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/jim181412"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/jim181412" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zitufan7@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">welcome to my blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Distributed-Relational-Data"><span class="toc-number">1.</span> <span class="toc-text">Distributed Relational Data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#distributed-database"><span class="toc-number">1.1.</span> <span class="toc-text">distributed database</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#parallel-databases"><span class="toc-number">1.2.</span> <span class="toc-text">parallel databases</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#data-integration"><span class="toc-number">1.3.</span> <span class="toc-text">data integration</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Big-data"><span class="toc-number">2.</span> <span class="toc-text">Big data</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#cloud-service"><span class="toc-number">2.1.</span> <span class="toc-text">cloud service</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Database-As-A-Service"><span class="toc-number">2.1.1.</span> <span class="toc-text">Database As A Service</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Distributed-data-challenge"><span class="toc-number">2.2.</span> <span class="toc-text">Distributed data challenge</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Partition"><span class="toc-number">3.</span> <span class="toc-text">Partition</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#partition"><span class="toc-number">3.1.</span> <span class="toc-text">partition:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#skew-and-hot-spots"><span class="toc-number">3.2.</span> <span class="toc-text">skew and hot spots</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Repatitioning"><span class="toc-number">3.3.</span> <span class="toc-text">Repatitioning</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Second-indexes"><span class="toc-number">4.</span> <span class="toc-text">Second indexes</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#store-of-secondary-indexing"><span class="toc-number">4.1.</span> <span class="toc-text">store of secondary indexing</span></a></li><li class="toc-item toc-level-3"><a class="toc-link"><span class="toc-number">4.2.</span> <span class="toc-text"></span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/07/nlp/week8/" title="week 8 Deep Learning">week 8 Deep Learning</a><time datetime="2022-12-07T18:26:30.176Z" title="Created 2022-12-07 18:26:30">2022-12-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/07/nlp/week6/" title="No title">No title</a><time datetime="2022-12-07T18:26:30.175Z" title="Created 2022-12-07 18:26:30">2022-12-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/07/nlp/week7/" title="week 7 NLP speech Sysnthesis and Recognition">week 7 NLP speech Sysnthesis and Recognition</a><time datetime="2022-12-07T18:26:30.175Z" title="Created 2022-12-07 18:26:30">2022-12-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/07/nlp/week5/" title="week 5 nlp">week 5 nlp</a><time datetime="2022-12-07T18:26:30.174Z" title="Created 2022-12-07 18:26:30">2022-12-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/07/nlp/week10/" title="week 10 Natrual language Processing">week 10 Natrual language Processing</a><time datetime="2022-12-07T18:26:30.172Z" title="Created 2022-12-07 18:26:30">2022-12-07</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/texas.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Jim</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"jsonPath":"/live2dw/assets/tororo.model.json"},"log":false});</script></body></html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Jim | Jim</title><meta name="author" content="Jim"><meta name="copyright" content="Jim"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="@import url(&#39;reset.css&#39;); @import url(&#39;text.css&#39;); @import url(&#39;960.css&#39;); @import url(&#39;grid.css&#39;); @import url(&#39;layout.css&#39;);  a { color: #3E4F90;} a:hover { text-decoration:underline;} body {backgro">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Jim">
+<meta property="og:url" content="http://jim181412.github.io/2022/12/07/advanced_distributed_system/InvertedIndex/Apache%20License,%20Version%202.0_files/style/index.html">
+<meta property="og:site_name" content="Jim">
+<meta property="og:description" content="@import url(&#39;reset.css&#39;); @import url(&#39;text.css&#39;); @import url(&#39;960.css&#39;); @import url(&#39;grid.css&#39;); @import url(&#39;layout.css&#39;);  a { color: #3E4F90;} a:hover { text-decoration:underline;} body {backgro">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://jim181412.github.io/img/texas.png">
+<meta property="article:published_time" content="2022-12-07T18:26:27.936Z">
+<meta property="article:modified_time" content="2022-12-07T18:26:27.938Z">
+<meta property="article:author" content="Jim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jim181412.github.io/img/texas.png"><link rel="shortcut icon" href="/img/pp.png"><link rel="canonical" href="http://jim181412.github.io/2022/12/07/advanced_distributed_system/InvertedIndex/Apache%20License,%20Version%202.0_files/style/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Jim',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-12-07 18:26:27'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/pp.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/texas.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jim</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">No title</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2022-12-07T18:26:27.936Z" title="Created 2022-12-07 18:26:27">2022-12-07</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-12-07T18:26:27.938Z" title="Updated 2022-12-07 18:26:27">2022-12-07</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container">@import url('reset.css');
+@import url('text.css');
+@import url('960.css');
+@import url('grid.css');
+@import url('layout.css');
+
+a { color: #3E4F90;}
+a:hover { text-decoration:underline;}
+body {background: #ddd; min-width: 1063px;}
+
+.container_16 {background: #fff; border-bottom: 2px solid #bbb; border-top: 1px solid #ccc;}
+#header h1 {margin-bottom: 30px; margin-top: 25px; margin-left: 0px; font-size: 18px;}
+#header h2 {margin-top: 20px; font-weight: normal; font-style: italic; font-size: 18px; margin-left: 10px;}
+#header img { float: left; margin: 5px 20px 10px 5px;}
+#nav ul { float: right; margin-top: 3px;}
+#nav ul li {display:inline; float:left; margin: 5px 0px;}
+#nav ul li a {padding: 10px; background: #303284; color: #fff;}
+#nav ul li a:hover {background: #3E4F90 url(../images/overlay.png) repeat-y; text-decoration:none;}
+#nav p { float: left; width: 100%; margin-left: 100px; }
+#intro, #featured_intro { margin-top: 40px;}
+#intro div { padding-bottom: 20px; padding-right: 10px; }
+#intro h3 {font-weight: bold; font-size: 20px;}
+#intro h3 span {display:block; font-weight: normal; font-size: 15px;}
+#featured_intro div { font-size: 20px;}
+#content, #news, #footer {margin-top: 10px;}
+.section-content {font-size: 15px;}
+#featured_intro, #news {padding-bottom: 20px;}
+#featured_intro h4 { font-weight: bold; font-size: 25px; }
+#featured_intro h4 span { font-weight: normal; display:block; font-size: 20px;}
+#featured_projs ul li { display:inline; float:left; display:none; padding: 0px 40px; list-style:none;}
+#featured_projs ul li p.description { font-size: 14px;}
+#featured_projs ul li p { margin-bottom: 5px;}
+#featured_switcher { background: #303284; border-bottom: 3px solid #303284; margin-bottom: -2px; margin-left: 0px; margin-right: 0px; width: 100%; text-align:center;}
+#featured_switcher ul { margin-left: 10px; margin-top: 3px;}
+#featured_switcher ul li {display:inline; float:left; font-size: 12px; margin: 5px 1px; color: #fff; font-weight:bold;}
+#featured_switcher ul li a {padding: 10px; color: #fff;}
+#featured_switcher #label {margin-right: 5px;}
+#featured_switcher ul li a:hover {background: #3E4F90 url(../images/overlay.png) repeat-y; color: #fff; text-decoration: none;}
+#featured_switcher ul li .active, #nav ul li .active {background: #3E4F90 url(../images/overlay.png) repeat-y;}
+#news, #footer {padding-top: 40px;}
+#news #news_feed {padding-left: 10px;}
+#news_feed {background: url('../images/shadown.png') no-repeat right top; overflow: hidden; }
+#news { padding-bottom: 30px;}
+#news .section-content {margin-bottom: 20px;}
+#news .section-content p {font-size: 13px;}
+#news .section-content pre {font-size: 13px;}
+#news .section-content img {float:right; padding: 0px 5px;}
+#news .section-content table { font-size: 13px; border: 0px;}
+#news .section-content table tbody td, tbody th { border-top:0px solid #bbb; border-bottom:1px solid #bbb; background: #fff; padding: 10px 0px;}
+#latest_activity, #project_menu{ padding: 0px 20px;}
+#latest_activity .section-content {font-size: 15px; overflow: hidden;}
+#footer .links { padding: 10px;}
+#footer ul li { font-size: 14px;}
+#footer ul li#more {list-style:none;}
+#copyright {background: transparent; margin-top: 20px; font-size: 15px;}
+#copyright { border-bottom: 0px; border-top: 0px;}
+#impact { padding-bottom: 20px;}
+#impact h4 { margin-bottom: 15px;}
+#impact div {padding-right: 30px;}
+#impact hr { width: 90%; float:left; margin-right: 10%;}
+#page { border-top: 0px;}
+.bug { background: transparent url('../images/bug.jpg') no-repeat left; padding-left: 20px;}
+.svn { background: transparent url('../images/svn.jpg') no-repeat left; padding-left: 20px;}
+#search {float:right;}
+#search input[type=text] { font-size: 13px; width: 300px; color: #aaa;}
+#project_menu ul li { font-size: 14px;}
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://jim181412.github.io">Jim</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://jim181412.github.io/2022/12/07/advanced_distributed_system/InvertedIndex/Apache%20License,%20Version%202.0_files/style/">http://jim181412.github.io/2022/12/07/advanced_distributed_system/InvertedIndex/Apache%20License,%20Version%202.0_files/style/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/texas.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2022/12/07/advanced_distributed_system/week4/"><img class="prev-cover" src="/img/texas.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info"></div></div></a></div><div class="next-post pull-right"><a href="/2022/12/07/advanced_distributed_system/InvertedIndex/Apache%20License,%20Version%202.0_files/jquery/"><img class="next-cover" src="/img/texas.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/pp.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jim</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">20</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/jim181412"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/jim181412" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zitufan7@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">welcome to my blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/07/nlp/week8/" title="week 8 Deep Learning">week 8 Deep Learning</a><time datetime="2022-12-07T18:26:30.176Z" title="Created 2022-12-07 18:26:30">2022-12-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/07/nlp/week6/" title="No title">No title</a><time datetime="2022-12-07T18:26:30.175Z" title="Created 2022-12-07 18:26:30">2022-12-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/07/nlp/week7/" title="week 7 NLP speech Sysnthesis and Recognition">week 7 NLP speech Sysnthesis and Recognition</a><time datetime="2022-12-07T18:26:30.175Z" title="Created 2022-12-07 18:26:30">2022-12-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/07/nlp/week5/" title="week 5 nlp">week 5 nlp</a><time datetime="2022-12-07T18:26:30.174Z" title="Created 2022-12-07 18:26:30">2022-12-07</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2022/12/07/nlp/week10/" title="week 10 Natrual language Processing">week 10 Natrual language Processing</a><time datetime="2022-12-07T18:26:30.172Z" title="Created 2022-12-07 18:26:30">2022-12-07</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/texas.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Jim</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"jsonPath":"/live2dw/assets/tororo.model.json"},"log":false});</script></body></html>
