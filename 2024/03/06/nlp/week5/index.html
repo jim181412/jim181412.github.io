@@ -1,0 +1,322 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>week 5 nlp | Jim</title><meta name="author" content="Jim"><meta name="copyright" content="Jim"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Week 5word sense definitionWord sense disambiguation (WSD) is selecting which sense of a word is used in a given piece of text(e.g., a sentence) from a set of multiple knownpossibilities (sense candid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="week 5 nlp">
+<meta property="og:url" content="http://jim181412.github.io/2024/03/06/nlp/week5/index.html">
+<meta property="og:site_name" content="Jim">
+<meta property="og:description" content="Week 5word sense definitionWord sense disambiguation (WSD) is selecting which sense of a word is used in a given piece of text(e.g., a sentence) from a set of multiple knownpossibilities (sense candid">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://jim181412.github.io/img/kurisu_wallpaper.png">
+<meta property="article:published_time" content="2024-03-06T05:47:04.585Z">
+<meta property="article:modified_time" content="2024-03-06T05:47:04.585Z">
+<meta property="article:author" content="Jim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://jim181412.github.io/img/kurisu_wallpaper.png"><link rel="shortcut icon" href="/img/pp.png"><link rel="canonical" href="http://jim181412.github.io/2024/03/06/nlp/week5/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'week 5 nlp',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-03-06 05:47:04'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/kurisu_avatar.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/kurisu_wallpaper.png')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Jim</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">week 5 nlp</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2024-03-06T05:47:04.585Z" title="Created 2024-03-06 05:47:04">2024-03-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2024-03-06T05:47:04.585Z" title="Updated 2024-03-06 05:47:04">2024-03-06</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="week 5 nlp"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Week-5"><a href="#Week-5" class="headerlink" title="Week 5"></a>Week 5</h1><h2 id="word-sense-definition"><a href="#word-sense-definition" class="headerlink" title="word sense definition"></a>word sense definition</h2><p>Word sense disambiguation (WSD) is selecting which sense of a word is used in a given piece of text<br>(e.g., a sentence) from a set of multiple known<br>possibilities (sense candidates).</p>
+<h2 id="2-typical-types-of-wsd-approaches"><a href="#2-typical-types-of-wsd-approaches" class="headerlink" title="2 typical types of wsd approaches"></a>2 typical types of wsd approaches</h2><ul>
+<li>knowledge-based approaches<ul>
+<li>use external knowledge, dictionaries and thesaurus</li>
+</ul>
+</li>
+<li>Supervised machine learning approaches<ul>
+<li>use labelled training examples</li>
+</ul>
+</li>
+</ul>
+<h2 id="Lesk-algorithm"><a href="#Lesk-algorithm" class="headerlink" title="Lesk algorithm"></a>Lesk algorithm</h2><ul>
+<li>Core idea: To examine the definition overlap in all possible sense combinations among all words in the given text</li>
+<li>implementation： <ul>
+<li>Retrieve from the dictionary all sense definitions of the words in the given piece of text</li>
+<li>Calculate the definition overlaps for all possible sense combinations</li>
+<li>choose the senses that offers the highest overlap</li>
+</ul>
+</li>
+</ul>
+<h2 id="Faster-Solution"><a href="#Faster-Solution" class="headerlink" title="Faster Solution"></a>Faster Solution</h2><ul>
+<li>Simplified Lesk examines overlap between sense denitions of a word and its current context.<ul>
+<li>Retrieve from the dictionary all sense definitions of the word to be disambiguated.</li>
+<li>Calculate the overlap between each sense definiton and the current context.</li>
+<li>Choose the sense that leads to the highest overlap.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Comparision-of-two-algorithms-Lesk-and-Simlified"><a href="#Comparision-of-two-algorithms-Lesk-and-Simlified" class="headerlink" title="Comparision of two algorithms (Lesk and Simlified)"></a>Comparision of two algorithms (Lesk and Simlified)</h2><ul>
+<li>Given a sentence containing $N$ words, each word has $m_i$ available senses,</li>
+<li>the time needs for checking overlapping words: <ul>
+<li>lesk algorithm: $m_1 * m_2 * m_3 * … * m_N$</li>
+<li>simplified algorithm: $m_1 + m_2 + m_3 + … + m_N$</li>
+</ul>
+</li>
+</ul>
+<h2 id="WSD-by-classificaton"><a href="#WSD-by-classificaton" class="headerlink" title="WSD by classificaton"></a>WSD by classificaton</h2><h3 id="supervised-learning"><a href="#supervised-learning" class="headerlink" title="supervised learning"></a>supervised learning</h3><ul>
+<li>goal: predict the output for giving input pattern</li>
+<li>training examples: a set of examples data patterns are provided, and we know the output of each example<ul>
+<li>These training examples guides the computer to build a predictive mapping between an input data pattern and desired output</li>
+</ul>
+</li>
+<li>Annotated training corpus: a collection of training examples</li>
+</ul>
+<h3 id="From-WSD-to-classification"><a href="#From-WSD-to-classification" class="headerlink" title="From WSD to classification"></a>From WSD to classification</h3><p>classification: Assign an input data pattern to one of a pre-defined set of classes(categorical output)</p>
+<ul>
+<li><p>Convert WSD to classification:</p>
+<ul>
+<li>An input data pattern: a word in a text</li>
+<li>Pre-defined set of classes: dictionary senses</li>
+<li>Training corpus: a collection of words tagged in context with their sense.</li>
+</ul>
+</li>
+<li><p>One option is to train one classifier to identify the sense for one word. N words in the dictionary requires to build N classifiers.</p>
+</li>
+</ul>
+<p>Joint probability: $P(X,Y) &#x3D; P(X) * P(Y)$  probability of two simultaneous events. </p>
+<p>Conditional probability: $P(A|B)$ probability of event A given the occurrence of event B</p>
+<p>The joint probability can be calculated by conditional probability:<br>$P(A,B) &#x3D; P(A|B) * P(B)$</p>
+<h3 id="examples"><a href="#examples" class="headerlink" title="examples"></a>examples</h3><p><img src="/images/figures_1.png" alt="nlp_1"><br>compare the possibility of:   </p>
+<p>$P((line,guitar,jazz,jazz), bass1)$ and $P((line,guitar,jazz,jazz),bass2)$</p>
+<p>$$<br>\begin{aligned}<br>P((line,guitar,jazz,jazz),bass1)<br>&amp;&#x3D; P((line,guitar,jazz,jazz)|bass1) * P(bass1) \<br>&amp;&#x3D; P(line|bass1) * P(guitar|bass1) * P(jazz|bass1) * P(jazz|bass1) * P(bass1)<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>P((line,guitar,jazz,jazz),bass2)<br>&amp;&#x3D; P((line,guitar,jazz,jazz)|bass2) * P(bass2) \<br>&amp;&#x3D; P(line|bass2) * P(guitar|bass2) * P(jazz|bass2) * P(jazz|bass2) * P(bass2)<br>\end{aligned}<br>$$</p>
+<p>According to the euqation:<br>$$<br>\begin{aligned}<br>&amp;P(word|class) &#x3D; \frac{ number_of_occurrence_of_word_in_class + 1 }{number_of_words_given_class + V} \<br>&amp;P(class) &#x3D; \frac{\text{Sample number in the class}}{\text{Total Sample Number}}<br>\end{aligned}<br>$$</p>
+<p>Therefore we have:<br>$$<br>\begin{aligned}<br>&amp;P(bass1) &#x3D; \frac{3}{4} \text{ and } P(bass2 ) &#x3D; \frac{1}{4} \<br>&amp;P(line|bass) &#x3D; \frac{1 + 1}{8 + 6} &#x3D; \frac{1}{7}<br>\end{aligned}<br>$$</p>
+<h2 id="Bootstrapping-techniques"><a href="#Bootstrapping-techniques" class="headerlink" title="Bootstrapping techniques"></a>Bootstrapping techniques</h2><p>However, what should we do if we dont have enough training examples?</p>
+<ul>
+<li>create some new training examples by applying rules to generalise the small set of given training samples. (Semi-supervised learning)<ul>
+<li>“One sense per collocation(搭配) “ rule: a word reoccurring in collocation with the same word will<br> almost surely have the same meaning.</li>
+<li>“One sense per discourse”: The sense of a word is highly consistence within a document, especially topic-specific words</li>
+</ul>
+</li>
+</ul>
+<h3 id="From-WSD-to-sequence-labeling"><a href="#From-WSD-to-sequence-labeling" class="headerlink" title="From WSD to sequence labeling"></a>From WSD to sequence labeling</h3><ul>
+<li>Sequence labeling is the task of assigning a sequence of labels to a sequence of observations</li>
+<li>A machine learning model can be built to map an input sequence(no label) to an outout sequence(has labels).<ul>
+<li>$[y_1,y_2,…,y_n] &#x3D; f(x_1,x_2,…,x_n)$</li>
+</ul>
+</li>
+<li>A WSD task can be naturally converted to a sequence labeling task:</li>
+</ul>
+<p><img src="/images/figures_2.png" alt="figure2"></p>
+<h3 id="WSD-evaluation-and-baselines"><a href="#WSD-evaluation-and-baselines" class="headerlink" title="WSD evaluation and baselines"></a>WSD evaluation and baselines</h3><ul>
+<li>Check sense accuracy (intrinstic evaluation)<ul>
+<li>% percent of words tagged indentically with the human-manual sense tags.</li>
+<li>Usually evaluate using held-out data from same labeled corpus.</li>
+</ul>
+</li>
+<li>Task-based evaluation (extrinsic evaluation).<ul>
+<li>embed WSD in a NLP task and see if you can do the task better.</li>
+</ul>
+</li>
+<li><strong>Baselines</strong> for comparision: <ul>
+<li>Assign the most frequent sense</li>
+<li>Compare with simplified lesk, (47% on senseval-2 data), if your implement results in a result lower than 47%, Then its a bad implementation.</li>
+</ul>
+</li>
+<li>Human agreements on all-words corpora with WordNet style senses are around 75% - 80%.</li>
+</ul>
+<h3 id="Approaches"><a href="#Approaches" class="headerlink" title="Approaches"></a>Approaches</h3><ul>
+<li>knowledged based<ul>
+<li>lesk</li>
+<li>simplified lesk</li>
+<li>corpus lesk</li>
+</ul>
+</li>
+<li>supervised machine learning<ul>
+<li>feature extraction</li>
+<li>naive bayes</li>
+</ul>
+</li>
+<li>hybrid machine learning (advanced machine learning method)<ul>
+<li>sequence labeling </li>
+<li>semi-supervised learning(bootstraping)</li>
+</ul>
+</li>
+</ul>
+<h1 id="week-5-homework"><a href="#week-5-homework" class="headerlink" title="week 5 homework"></a>week 5 homework</h1><p><img src="/images/%E6%88%AA%E5%B1%8F2022-11-09%2020.51.28.png" alt="question 1"></p>
+<p>Answer:<br>We calculate the overlaps of all combinations of senses of words in the phrase,</p>
+<p>hard#1drink#1 overlap: 2 (alcolholic and liquor)<br>hard#1drink#2 overlap: 0<br>hard#2drink#1 overlap: 0<br>hard#2drink#2 overlap: 0<br>hard#3drink#1 overlap: 0<br>hard#3drink#2 overlap: 0</p>
+<p>Therefore, we pick the senses combianations with highest number of overlaps, which is hard sense1 and drink sense 1.</p>
+<p><img src="/images/%E6%88%AA%E5%B1%8F2022-11-09%2021.07.46.png" alt="question 2"></p>
+<p>Answer:<br>a) because the sentence is so long, if we need to calculate for all combinations of senses of words in the given sentence.<br>Then we have to check $m_1 * m_2 * … * m_n$ (n is number of words in the sentence) combinations. It is time-consuming and impractical.</p>
+<p>b) We first get all senses of word ‘hard ‘ from the dictionary, and then calculate the overlaps between each sense and context. Finally, we pick the sense with highest number of overlaps </p>
+<p><img src="/images/%E6%88%AA%E5%B1%8F2022-11-09%2021.32.25.png" alt="question 3"></p>
+<p>Answer: </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> nltk<br><span class="hljs-keyword">from</span> nltk.wsd <span class="hljs-keyword">import</span> lesk<br><span class="hljs-keyword">from</span> nltk.tokenize <span class="hljs-keyword">import</span> word_tokenize<br><span class="hljs-keyword">from</span> nltk.corpus <span class="hljs-keyword">import</span> wordnet <span class="hljs-keyword">as</span> wn<br>sentence = <span class="hljs-string">&quot;Although X-ray is heavily researched in Japan, it is very difficult to use to draw lines on a chip because the X-ray particles are hard to control&quot;</span><br>sentence = word_tokenize(sentence)<br><span class="hljs-built_in">print</span>(lesk(sentence,<span class="hljs-string">&#x27;hard&#x27;</span>))<br><br><span class="hljs-keyword">for</span> ss <span class="hljs-keyword">in</span> wn.synsets(<span class="hljs-string">&#x27;hard&#x27;</span>):<br>    <span class="hljs-built_in">print</span>(ss, ss.definition())<br></code></pre></td></tr></table></figure>
+
+
+<p><img src="/images/%E6%88%AA%E5%B1%8F2022-11-09%2021.32.57.png" alt="question 4"></p>
+<p>Answer:<br>question1:<br>$$<br>\begin{aligned}<br>P((liquor, lawyer, work), hard1)<br>&amp;&#x3D; P((liquor, lawyer, work)| hard1) * P(hard1) \<br>&amp;&#x3D; P(liquor|hard1) * P(lawyer|hard1) * P(work|hard1) * P(hard1) \<br>&amp;&#x3D; \frac{4+1}{9+8} * \frac{1}{9+8} * \frac{1+1}{9+8} * \frac{1}{2} \<br>&amp;&#x3D; 5&#x2F;17 * 1&#x2F;17 * 2&#x2F;17 * 1&#x2F;2<br>&amp;&#x3D; 0.001<br>\end{aligned}<br>$$</p>
+<p>$$<br>\begin{aligned}<br>P((liquor, lawyer, work), hard2)<br>&amp;&#x3D; P((liquor, lawyer, work)| hard2) * P(hard2) \<br>&amp;&#x3D; P(liquor|hard2) * P(lawyer|hard2) * P(work|hard2) * P(hard2) \<br>&amp;&#x3D; \frac{1}{10+8} * \frac{1+1}{10+8} * \frac{2+1}{10+8} * \frac{1}{2} \<br>&amp;&#x3D; 1&#x2F;18 * 2&#x2F;18 * 3&#x2F;18 * 1&#x2F;2<br>&amp;&#x3D; 0.0005<br>\end{aligned}<br>$$</p>
+<p>Therefore, using sense1 for hard in query {liquor,laywer,work}</p>
+<p>question2:<br>$$<br>\begin{aligned}<br>P((task,work,duty,work),hard1)<br>&amp;&#x3D; P(task|hard1) * P(work|hard1) * P(duty|hard1) * P(work|hard1) * P(hard1) \<br>&amp;&#x3D; \frac{1}{17} * \frac{2}{17} * \frac{1}{17} * \frac{2}{17} * \frac{1}{2} \<br>&amp;&#x3D; 2.39e-5<br>\end{aligned}<br>$$<br>$$<br>\begin{aligned}<br>P((task,work,duty,work),hard2)<br>&amp;&#x3D; P(task|hard2) * P(work|hard2) * P(duty|hard2) * P(work|hard2) * P(hard2) \<br>&amp;&#x3D; \frac{2}{18} * \frac{3}{18} * \frac{2}{18} * \frac{3}{18} * \frac{1}{2} \<br>&amp;&#x3D; 1.71e-4<br>\end{aligned}<br>$$<br>Therefore, sense2 for hard in query {task,work,duty,work}.</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="http://jim181412.github.io">Jim</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="http://jim181412.github.io/2024/03/06/nlp/week5/">http://jim181412.github.io/2024/03/06/nlp/week5/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/kurisu_wallpaper.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/03/06/nlp/week6/"><img class="next-cover" src="/img/kurisu_wallpaper.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info"></div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/kurisu_avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Jim</div><div class="author-info__description">Postgraduate student of University of Manchester</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">3</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">3</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/jim181412"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/jim181412" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:zitufan004@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">welcome to my blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Week-5"><span class="toc-number">1.</span> <span class="toc-text">Week 5</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#word-sense-definition"><span class="toc-number">1.1.</span> <span class="toc-text">word sense definition</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-typical-types-of-wsd-approaches"><span class="toc-number">1.2.</span> <span class="toc-text">2 typical types of wsd approaches</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Lesk-algorithm"><span class="toc-number">1.3.</span> <span class="toc-text">Lesk algorithm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Faster-Solution"><span class="toc-number">1.4.</span> <span class="toc-text">Faster Solution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Comparision-of-two-algorithms-Lesk-and-Simlified"><span class="toc-number">1.5.</span> <span class="toc-text">Comparision of two algorithms (Lesk and Simlified)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#WSD-by-classificaton"><span class="toc-number">1.6.</span> <span class="toc-text">WSD by classificaton</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#supervised-learning"><span class="toc-number">1.6.1.</span> <span class="toc-text">supervised learning</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#From-WSD-to-classification"><span class="toc-number">1.6.2.</span> <span class="toc-text">From WSD to classification</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#examples"><span class="toc-number">1.6.3.</span> <span class="toc-text">examples</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bootstrapping-techniques"><span class="toc-number">1.7.</span> <span class="toc-text">Bootstrapping techniques</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#From-WSD-to-sequence-labeling"><span class="toc-number">1.7.1.</span> <span class="toc-text">From WSD to sequence labeling</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#WSD-evaluation-and-baselines"><span class="toc-number">1.7.2.</span> <span class="toc-text">WSD evaluation and baselines</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Approaches"><span class="toc-number">1.7.3.</span> <span class="toc-text">Approaches</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#week-5-homework"><span class="toc-number">2.</span> <span class="toc-text">week 5 homework</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/06/nlp/week5/" title="week 5 nlp">week 5 nlp</a><time datetime="2024-03-06T05:47:04.585Z" title="Created 2024-03-06 05:47:04">2024-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/06/nlp/week6/" title="No title">No title</a><time datetime="2024-03-06T05:47:04.585Z" title="Created 2024-03-06 05:47:04">2024-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/06/nlp/week7/" title="week 7 NLP speech Sysnthesis and Recognition">week 7 NLP speech Sysnthesis and Recognition</a><time datetime="2024-03-06T05:47:04.585Z" title="Created 2024-03-06 05:47:04">2024-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/06/nlp/week8/" title="week 8 Deep Learning">week 8 Deep Learning</a><time datetime="2024-03-06T05:47:04.585Z" title="Created 2024-03-06 05:47:04">2024-03-06</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/03/06/nlp/tensorflow/" title="tensorflow some instruction">tensorflow some instruction</a><time datetime="2024-03-06T05:47:04.584Z" title="Created 2024-03-06 05:47:04">2024-03-06</time></div></div></div></div></div></div></main><footer id="footer" style="background-image: url('/img/kurisu_wallpaper.png')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Jim</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"jsonPath":"/live2dw/assets/tororo.model.json"},"log":false});</script></body></html>
